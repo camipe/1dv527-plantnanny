@@ -6,26 +6,22 @@ const sensor = require('node-dht-sensor');
 const mcpadc = require('mcp-spi-adc');
 
 setInterval(() => {
-    sensor.read(22, 12, (err, temp, hum) => {
+  sensor.read(22, 12, (err, temp, hum) => {
     if (!err) {
-	var tempSensor = mcpadc.open(0, function (err) {
-            if (err) throw err;
-            tempSensor.read(function (err, reading) {
-                if (err) throw err;
-                console.log(reading.rawValue);
-		console.log('temp: ' + temp.toFixed(1) + 'C');
-		console.log('humidty: ' + hum.toFixed(1) + '%');
-            });
-    };
+      const tempSensor = mcpadc.open(0, (err) => {
+        if (err) throw err;
+        tempSensor.read((err, reading) => {
+          if (err) throw err;
+
+          console.log(`soil: ${reading.rawValue}`);
+          console.log(`temp: ${temp.toFixed(1)} Celsius`);
+          console.log(`humidty: ${hum.toFixed(1)}%`);
+        });
+      });
+    }
+  });
 }, 5000);
 
-var tempSensor = mcpadc.open(0, function (err) {
-  if (err) throw err;
-  tempSensor.read(function (err, reading) {
-    if (err) throw err;
-    console.log(reading.rawValue);
-    });
-});
 
 // create app
 const app = express();
@@ -46,8 +42,6 @@ app.use('/', (req, res) => {
     status: 'WORKING',
   });
 });
-
-
 
 // export
 module.exports = app;
