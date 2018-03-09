@@ -22,8 +22,10 @@
     "cors": "^2.8.4",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
+    "mcp-spi-adc": "^2.0.0",
     "mongoose": "^5.0.4",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "node-dht-sensor": "0.0.34"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
