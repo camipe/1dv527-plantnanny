@@ -8,7 +8,7 @@ const mcpadc = require('mcp-spi-adc');
 setInterval(() => {
   sensor.read(22, 12, (err, temp, hum) => {
     if (!err) {
-      const tempSensor = mcpadc.open(0, (err) => {
+      const tempSensor = mcpadc.open(6, (err) => {
         if (err) throw err;
         tempSensor.read((err, reading) => {
           if (err) throw err;
