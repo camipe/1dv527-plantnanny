@@ -1,28 +1,18 @@
 const Plant = {
   name: 'Plant 1',
   type: 'Sun flower',
-  sensors: {
-    temperature: {
+  sensors: [
+    {
+      name: 'Air Temperature',
+      value: 0,
+    },
+  ],
+  lights: [
+    {
+      name: 'Water level light',
 
     },
-    humidity: {
-
-    },
-    waterlevel: {
-
-    },
-  },
-  lights: {
-    lightTemperature: {
-
-    },
-    lightHumidity: {
-
-    },
-    lightWaterlevel: {
-
-    },
-  },
+  ],
 };
 
 module.exports = Plant;

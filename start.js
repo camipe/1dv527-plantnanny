@@ -1,14 +1,14 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // setup enviroment file
 require('dotenv').config({ path: 'variables.env' });
 
 // setup database connection
-// mongoose.connect(process.env.DATABASE);
-// mongoose.Promise = global.Promise;
-// mongoose.connection.on('error', (err) => {
-//   console.error(`Error: ${err.message}`);
-// });
+mongoose.connect(process.env.DATABASE);
+mongoose.Promise = global.Promise;
+mongoose.connection.on('error', (err) => {
+  console.error(`Error: ${err.message}`);
+});
 
 // TODO: import models
 
