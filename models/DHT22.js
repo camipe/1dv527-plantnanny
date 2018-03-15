@@ -9,7 +9,7 @@ const dht22Schema = new mongoose.Schema({
   },
   humidity: {
     type: Number,
-    required: 'temperature is required',
+    required: 'humidity is required',
   },
   created: {
     type: Date,

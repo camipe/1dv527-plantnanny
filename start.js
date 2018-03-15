@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 // setup enviroment file
 require('dotenv').config({ path: 'variables.env' });
 
@@ -10,7 +11,9 @@ mongoose.connection.on('error', (err) => {
   console.error(`Error: ${err.message}`);
 });
 
-// TODO: import models
+// import models
+require('./models/DHT22');
+require('./models/LM393');
 
 // start app!
 const app = require('./app');

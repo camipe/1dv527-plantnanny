@@ -3,6 +3,7 @@ const routes = require('./routes/index');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const dataCollector = require('./tasks');
 
 // create app
 const app = express();
@@ -18,6 +19,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // read sensor data on a schdule
+dataCollector(10000);
 // save sensor data to database
 
 // setup routes
