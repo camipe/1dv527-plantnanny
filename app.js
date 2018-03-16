@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // read sensor data on a schdule
-dataCollector(5000);
+dataCollector(10000);
 // save sensor data to database
 
 // setup routes

@@ -1,4 +1,5 @@
 const express = require('express');
+const dataController = require('../controllers/dataController');
 
 const router = express.Router();
 
@@ -6,17 +7,8 @@ router.get('/', (req, res) => {
   res.send('showing complete object');
 });
 
-router.get('/temperature', (req, res) => {
-  res.send('showing temperature data');
-});
+router.get('/air', dataController.getAir);
 
-router.get('/humidity', (req, res) => {
-  res.send('showing temperature data');
-});
-
-router.get('/soil', (req, res) => {
-  res.send('showing soil waterlevel');
-});
-
+router.get('/soil', dataController.getSoil);
 
 module.exports = router;

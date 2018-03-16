@@ -13,8 +13,7 @@ const collectData = (interval) => {
     await lm393.read();
     await lm393.save();
 
-    console.log(dht22);
-    console.log(lm393);
+    console.log(`Sensors read and saved at ${Date.now()}`);
   }, interval);
 };
 
