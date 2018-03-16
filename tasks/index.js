@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const DHT22 = mongoose.model('DHT22');
 const LM393 = mongoose.model('LM393');
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
 const collectData = (interval) => {
   setInterval(async () => {
     const dht22 = new DHT22();
