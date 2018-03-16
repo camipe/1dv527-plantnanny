@@ -9,18 +9,12 @@ function getRandomInt(max) {
 
 const collectData = (interval) => {
   setInterval(async () => {
-    const temp = getRandomInt(100);
-    const humid = getRandomInt(100);
-    const soil = getRandomInt(100);
-    const rawSoil = getRandomInt(1023);
-
-    const airData = { temperature: temp, humidity: humid };
-    const soilData = { value: soil, rawValue: rawSoil };
-
-    const dht22 = new DHT22(airData);
-    const lm393 = new LM393(soilData);
-
+    const dht22 = new DHT22();
+    await dht22.read();
     await dht22.save();
+
+    const lm393 = new LM393();
+    await lm393.read();
     await lm393.save();
 
     console.log(dht22);
