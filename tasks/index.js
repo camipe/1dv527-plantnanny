@@ -4,7 +4,7 @@ const schedule = require('node-schedule');
 const DHT22 = mongoose.model('DHT22');
 const LM393 = mongoose.model('LM393');
 
-// reads sensors and save to db
+// reads sensors and save to db every hour
 exports.collectData = () => {
   schedule.scheduleJob('00 * * * *', async () => {
     const dht22 = new DHT22();
