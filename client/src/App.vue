@@ -1,8 +1,22 @@
 <template>
   <div id="app">
     <h1>Plant Nanny</h1>
+    <h2>Latest data</h2>
     <div class="live">
-
+      <div class="live-air">
+        <h2>Air</h2>
+        <p>
+          <b>Temperature:</b> x 
+          <br>
+          <b>Humidity:</b> x
+        </p>
+      </div>
+      <div class="live-soil">
+        <h2>Soil</h2>
+        <p>
+          <b>Moisture:</b> x
+        </p>
+      </div>
     </div>
 
     <div class="graphs">
@@ -47,6 +61,7 @@ export default {
 
 h1, h2 {
   font-weight: normal;
+  margin-bottom: 8px;
 }
 
 ul {
@@ -62,4 +77,29 @@ li {
 a {
   color: #42b983;
 }
+
+h3 {
+  margin-bottom: 12px;
+}
+.live {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.live-air {
+  display: block;
+  width: 35%;
+}
+
+.live-soil {
+  display: block;
+  width: 35%;
+}
+
+.live p {
+  margin-top: 0;
+}
+
 </style>
