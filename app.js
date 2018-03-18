@@ -19,8 +19,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // read sensor data on a schdule
-dataCollector(10000);
-// save sensor data to database
+dataCollector.collectData(10000);
 
 // setup routes
 app.use('/api/v1', routes);

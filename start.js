@@ -19,21 +19,17 @@ require('./models/LM393');
 // start app!
 const app = require('./app');
 
+
 const server = http.createServer(app);
 
 // start socket.io
 const io = socketIO(server);
+const dataCollector = require('./tasks');
 
-// This is what the socket.io syntax is like, we will work this later
 io.on('connection', (socket) => {
   console.log('User connected');
 
-  io.emit('updateData', {
-    temp: '1',
-    humidity: '2',
-    soilValue: '3',
-  });
-
+  dataCollector.readCurrent(io, 2000);
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
