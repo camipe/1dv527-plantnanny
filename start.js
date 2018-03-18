@@ -28,7 +28,11 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('User connected');
 
-  io.emit('customEmit', {});
+  io.emit('updateData', {
+    temp: '1',
+    humidity: '2',
+    soilValue: '3',
+  });
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
