@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const schedule = require('node-schedule');
 
 const DHT22 = mongoose.model('DHT22');
 const LM393 = mongoose.model('LM393');
 
 // reads sensors and save to db
-exports.collectData = (interval) => {
-  setInterval(async () => {
+exports.collectData = () => {
+  schedule.scheduleJob('00 * * * *', async () => {
     const dht22 = new DHT22();
     await dht22.read();
     await dht22.save();
@@ -15,7 +16,7 @@ exports.collectData = (interval) => {
     await lm393.save();
 
     console.log(`Sensors read and saved at ${Date.now()}`);
-  }, interval);
+  });
 };
 
 // reads the sensors and emits and socket io event
