@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    
+    <h1>Plant Nanny</h1>
+    <div class="live">
+
+    </div>
+
     <div class="graphs">
-      <h3>DHT22</h3>
-      <Air :data="airData.raw" :height="300"></Air>
+      <h3>Sensor DHT22</h3>
+      <Air :height="300"></Air>
+
+      <h3>Sensor LM393</h3>
+      <Soil :height="300"></Soil>
     </div>
     
   </div>
@@ -12,7 +19,7 @@
 <script>
 import axios from 'axios';
 import Air from './Air.vue';
-import Soil from './Air.vue';
+import Soil from './Soil.vue';
 
 export default {
   name: 'app',
@@ -20,62 +27,6 @@ export default {
     Air,
     Soil
   },
-  data () {
-    return {
-      airData: {
-        raw: [],
-        formatted: [],
-      },
-      soilData: {
-        raw: [],
-        formatted: [],
-      },
-      errors: [],
-      example: {
-        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
-        datasets: [
-          {
-            label: 'Temperature (°C)',
-            backgroundColor: '#0dafae',
-            data: [21, 21, 26, 18, 20, 24, 21]
-          },
-          {
-            label: 'Humidity (%)',
-            backgroundColor: '#ac8885',
-            data: [96, 34, 39, 40, 39, 28, 40]
-          }
-        ]
-      },
-    }
-  },
-  async created() {
-    try {
-      const response = await axios.get(`http://raspy.pi:9090/api/v1/air`)
-      this.airData.raw = response.data
-    } catch (e) {
-      this.errors.push(e)
-      console.log(e);
-    }
-
-    try {
-      const response = await axios.get(`http://raspy.pi:9090/api/v1/soil`)
-      this.soilData.raw = response.data
-    } catch (e) {
-      this.errors.push(e)
-      console.log(e);
-    }
-    
-  },
-  mounted() {
-    this.formatSoildata();
-  },
-  methods: {
-    formatSoildata () {
-      console.log(this.soilData.raw);
-      const last = this.soilData.raw.slice(-15);
-      console.log(last);
-    },
-  }
 }
 </script>
 

@@ -44,28 +44,28 @@ export default {
     try {
       const response = await axios.get(`http://raspy.pi:9090/api/v1/air`)
 
+      // setting up data object for chart
       const formatted = {
-        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00','12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00','07:00', '08:00', '09:00', '10:00', '11:00', 
+                '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00','20:00', '21:00', '22:00', '23:00'],
         datasets: [
           {
             label: 'Temperature (°C)',
-            backgroundColor: '#0dafae',
+            backgroundColor: '#55AA55',
             data: []
           },
           {
             label: 'Humidity (%)',
-            backgroundColor: '#ac8885',
+            backgroundColor: '#2F3F73',
             data: []
           }
         ]
       };
-
-      response.data.slice(-5).map((el) => {
-        console.log(el)
+      // inserting data points in to data set
+      response.data.slice(-24).map((el) => {
         formatted.datasets[0].data.push(el.temperature)
         formatted.datasets[1].data.push(el.humidity)
       });
-      console.log(formatted);
       this.chartData = formatted;
 
     } catch (e) {
