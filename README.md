@@ -1,8 +1,11 @@
 # Plant Nanny
 The goal of this applications is to monitor the environment surrounding a potted plant. It consists of a Node/Express.js API and a Vue.js-based front  end.
 
-The front end can be accessed at: [Plant Nanny](http://micaelpersson.asuscomm.com/)
-The API is available at: [Plant Nanny API](http://micaelpersson.asuscomm.com/api/v1/)
+The front end can be accessed at: 
+* [Plant Nanny](http://micaelpersson.asuscomm.com/)
+
+The API is available at: 
+* [Plant Nanny API](http://micaelpersson.asuscomm.com/api/v1/)
 
 ### Backend functionality
 The API has three routes:
@@ -29,13 +32,16 @@ This component shows a graph of the soil data from the last 24 hours. You can se
 
 ## Web of things
 The application is built with the direct integration pattern in mind. The sensors connect directly to a Raspberry Pi 3 which hosts the client and HTTP server. 
-Since the application just reads data it seemed overkill to make the api design  as general and complex as they did in the course literature so I opted for a simpler version. In the API root the ”thing”, the plant can be accessed. It describes the thing, what the properties are, links to access them, which should make it somewhat machine readable.
+Since the application just reads data it seemed overkill to make the api design  as general and complex as they did in the course literature so I opted for a simpler version. 
+
+In the API root the ”thing”, the plant can be accessed. It describes the thing, what the properties are, links to access them, which should make it somewhat machine readable.
 
 In the book they talk about different layers for the web of things:
 1. Access
 2. Find
 3. Share
 4. Compose
+
 I think I’ve implemented the access layer by building the API, the compose layer by building the vue.js front end and the find layer (very basic) by having some discoverability in the describing object.
 The share layer fell to the side in the fight with time but I was planning to make the application use https at least, I’ve been meaning to try let’s encrypt for a while.
 
