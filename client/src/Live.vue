@@ -13,7 +13,7 @@
       <div class="live-soil">
         <h2>Soil</h2>
         <p>
-          <b>Moisture:</b> {{soilValue}}%
+          <b>Dryness:</b> {{soilValue}}%
         </p>
       </div>
     </div>

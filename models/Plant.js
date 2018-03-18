@@ -31,7 +31,7 @@ const Plant = {
         },
         {
           name: 'value',
-          description: 'Normalised value. Value 0.0-1.0',
+          description: 'Normalised value, lower is dryer. Value 0.0-1.0',
         },
         {
           name: 'created',

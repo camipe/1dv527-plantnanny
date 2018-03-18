@@ -36,16 +36,9 @@ export default {
       console.log('socket connected')
     },
     updateData: function(data){
-      console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
       this.liveData = data;
     }
   },
-  methods: {
-    clickButton: function(val){
-        // $socket is socket.io-client instance
-        this.$socket.emit('emit_method', val);
-    }
-  }
 }
 </script>
 
