@@ -1,24 +1,7 @@
 <template>
   <div id="app">
     <h1>Plant Nanny</h1>
-    <h2>Latest data</h2>
-    <div class="live">
-      <div class="live-air">
-        <h2>Air</h2>
-        <p>
-          <b>Temperature:</b> x 
-          <br>
-          <b>Humidity:</b> x
-        </p>
-      </div>
-      <div class="live-soil">
-        <h2>Soil</h2>
-        <p>
-          <b>Moisture:</b> x
-        </p>
-      </div>
-    </div>
-
+    <Live :temp="liveData.temp" :humidity="liveData.humidity" :soil-value="liveData.soilValue"></Live>
     <div class="graphs">
       <h3>Sensor DHT22</h3>
       <Air :height="300"></Air>
@@ -34,13 +17,35 @@
 import axios from 'axios';
 import Air from './Air.vue';
 import Soil from './Soil.vue';
+import Live from './Live.vue';
 
 export default {
   name: 'app',
   components: {
     Air,
-    Soil
+    Soil,
+    Live,
   },
+  data () {
+    return {
+      liveData: {},
+    }
+  },
+  sockets:{
+    connect: function(){
+      console.log('socket connected')
+    },
+    updateData: function(data){
+      console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+      this.liveData = data;
+    }
+  },
+  methods: {
+    clickButton: function(val){
+        // $socket is socket.io-client instance
+        this.$socket.emit('emit_method', val);
+    }
+  }
 }
 </script>
 
@@ -77,29 +82,4 @@ li {
 a {
   color: #42b983;
 }
-
-h3 {
-  margin-bottom: 12px;
-}
-.live {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.live-air {
-  display: block;
-  width: 35%;
-}
-
-.live-soil {
-  display: block;
-  width: 35%;
-}
-
-.live p {
-  margin-top: 0;
-}
-
 </style>

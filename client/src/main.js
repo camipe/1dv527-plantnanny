@@ -1,6 +1,10 @@
 /* eslint-disable */
 import Vue from 'vue';
+import VueSocketio from 'vue-socket.io';
 import App from './App.vue';
+
+// setup socket io connection
+Vue.use(VueSocketio, 'http://raspy.pi:9090');
 
 new Vue({
   el: '#app',
