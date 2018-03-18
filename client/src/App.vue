@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Plant Nanny</h1>
-    <Live :temp="10" :humidity="20" :soil-value="50"></Live>
+    <Live :temp="liveData.temp" :humidity="liveData.humidity" :soil-value="liveData.soilValue"></Live>
     <div class="graphs">
       <h3>Sensor DHT22</h3>
       <Air :height="300"></Air>
@@ -25,13 +25,19 @@ export default {
     Air,
     Soil,
     Live,
-  },  
+  },
+  data () {
+    return {
+      liveData: {},
+    }
+  },
   sockets:{
     connect: function(){
       console.log('socket connected')
     },
-    customEmit: function(val){
+    updateData: function(data){
       console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+      this.liveData = data;
     }
   },
   methods: {
