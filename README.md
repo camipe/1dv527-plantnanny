@@ -24,7 +24,7 @@ This component shows the latest data from the API’s web socket. It updates aut
 
 #### Air data
 This component shows a graph of the air data from the last 24 hours. You can see the temperature and humidity levels of the air.
-![Image of Air data component](img/2.pngraw=true "Air data")
+![Image of Air data component](img/2.png?raw=true "Air data")
 
 #### Soil data
 This component shows a graph of the soil data from the last 24 hours. You can see the moisture/dryness level in the soil. I had a lot of trouble getting correct values from the sensor. I just today figured out that the sensor return high values when it’s dry and low values when it’s wet. A high dryness % means it’s very dry and a low % means it’s very wet. 
