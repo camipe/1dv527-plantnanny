@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Plant = require('../models/Plant');
 
 const DHT22 = mongoose.model('DHT22');
 const LM393 = mongoose.model('LM393');
@@ -11,4 +12,8 @@ exports.getAir = async (req, res) => {
 exports.getSoil = async (req, res) => {
   const soilData = await LM393.find();
   res.json(soilData);
+};
+
+exports.getMap = async (req, res) => {
+  res.json(Plant);
 };

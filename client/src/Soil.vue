@@ -42,7 +42,7 @@ export default {
   },  
   async created() {
     try {
-      const response = await axios.get(`http://raspy.pi:9090/api/v1/soil`)
+      const response = await axios.get(`http://micaelpersson.asuscomm.com/api/v1/soil`)
       
       // setting up data object for chart
       const formatted = {

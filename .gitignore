@@ -12,3 +12,5 @@ node_modules/
 variables.env
 
 .AppleDouble
+client/dist/
+public/js/

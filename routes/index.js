@@ -3,9 +3,7 @@ const dataController = require('../controllers/dataController');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('showing complete object');
-});
+router.get('/', dataController.getMap);
 
 router.get('/air', dataController.getAir);
 
