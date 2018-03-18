@@ -20,15 +20,15 @@ The front end is built with Vue.js and shows some information and graphs downloa
 #### Live data
 This component shows the latest data from the API’s web socket. It updates automatically when an event has been received.
 
-![](Plant%20Nanny/Ska%CC%88rmavbild%202018-03-18%20kl.%2022.22.22.png)
+![Image of Live data component](img/1.png?raw=true "Live data")
 
 #### Air data
 This component shows a graph of the air data from the last 24 hours. You can see the temperature and humidity levels of the air.
-
-![](Plant%20Nanny/Ska%CC%88rmavbild%202018-03-18%20kl.%2022.22.37.png)
+![Image of Air data component](img/2.pngraw=true "Air data")
 
 #### Soil data
 This component shows a graph of the soil data from the last 24 hours. You can see the moisture/dryness level in the soil. I had a lot of trouble getting correct values from the sensor. I just today figured out that the sensor return high values when it’s dry and low values when it’s wet. A high dryness % means it’s very dry and a low % means it’s very wet. 
+![Image of Soil data component](img/3.png?raw=true "Soil data")
 
 ## Web of things
 The application is built with the direct integration pattern in mind. The sensors connect directly to a Raspberry Pi 3 which hosts the client and HTTP server. 
@@ -51,6 +51,7 @@ Everything surrounding the hardware, sensors and raspberry pi was very new to me
 It could’ve interesting to have something that could’ve been interacted with through the client, turning on a air moisturizer to raise the humidity or just a led lamp but I couldn’t find any reason for it in the context of my application.
 
 So to sumarize:
+
 Postives:
 * Fun and interesting.
 * Learned a lot.
