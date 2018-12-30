@@ -1,12 +1,6 @@
 # Plant Nanny
 The goal of this application is to monitor the environment surrounding a potted plant. It consists of a Node/Express.js API and a Vue.js-based front end.
 
-The front end can be accessed at: 
-* [Plant Nanny](http://micaelpersson.asuscomm.com/)
-
-The API is available at: 
-* [Plant Nanny API](http://micaelpersson.asuscomm.com/api/v1/)
-
 ### Backend functionality
 The API has three routes:
 * `'/api/v1/'` the api root returns an object describing the different sensors and their properties with links to their access points.
