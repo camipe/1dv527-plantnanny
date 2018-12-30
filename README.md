@@ -1,5 +1,5 @@
 # Plant Nanny
-The goal of this applications is to monitor the environment surrounding a potted plant. It consists of a Node/Express.js API and a Vue.js-based front  end.
+The goal of this application is to monitor the environment surrounding a potted plant. It consists of a Node/Express.js API and a Vue.js-based front end.
 
 The front end can be accessed at: 
 * [Plant Nanny](http://micaelpersson.asuscomm.com/)
